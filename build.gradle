@@ -1,18 +1,13 @@
-//TODO Add Shipkit to Gradle build
-// First, identify latest version from: https://plugins.gradle.org/plugin/org.shipkit.java
-// Then, uncomment below:
-
-//plugins {
-//  id "org.shipkit.java" version "TODO"
-//}
-
-//This is a Java project
-apply plugin: "java"
+plugins {
+  id "org.shipkit.java" version "2.2.5"
+  id 'java'
+}
 
 //Configuring the group based on user name
 //so that artifacts published from this build don't collide
 //with artifacts published by other users that experiment with 'shipkit-boostrap'
 group = "org.shipkit.bootstrap.${System.getProperty("user.name")}"
 
-//TODO enable Shipkit
-//apply plugin: "org.shipkit.java"
+jar {
+    archiveClassifier.set 'unbundled'
+}
